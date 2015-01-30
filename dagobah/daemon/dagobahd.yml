@@ -72,9 +72,9 @@ Logging:
 Email:
 
   # set host and port of the SMTP server to use to send mail
-  # e.g. host: smtp.gmail.com   port: 587
+  # e.g. host: smtp.gmail.com   port: 587(tls) / 465(ssl)
   host: smtp.gmail.com
-  port: 587
+  port: 465
 
   # email server authentication
   auth_required: True
@@ -83,7 +83,8 @@ Email:
 
 
   # tls is required for some mail servers, specifically Gmail
-  use_tls: True
+  use_tls: False
+  use_ssl: True
 
   # from address in the emails from Dagobah.
   # supports the following special variables within curly brackets {}
