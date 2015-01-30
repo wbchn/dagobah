@@ -58,11 +58,14 @@ class EmailTemplate(object):
 
 
     def _send_message(self):
-        s = smtplib.SMTP(self.host, self.port)
-        if self.use_tls:
-            s.ehlo()
-            s.starttls()
-            s.ehlo
+        if self.use_ssl:
+            s = smtplib.SMTP_SSL(self.host, self.port)
+        else:
+            s = smtplib.SMTP(self.host, self.port)
+            if self.use_tls:
+                s.ehlo()
+                s.starttls()
+                s.ehlo
 
         if getattr(self, 'auth_required', True):  #Preserve backward compatibility
             s.login(self.user, self.password)
