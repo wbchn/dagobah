@@ -865,8 +865,8 @@ class Task(object):
 
         self._task_complete(success=True if return_code == 0 else False,
                             return_code=return_code,
-                            stdout=self.stdout,
-                            stderr=self.stderr,
+                            stdout=self.stdout.decode('utf-8'),
+                            stderr=self.stderr.decode('utf-8'),
                             start_time=self.started_at,
                             complete_time=datetime.utcnow())
 
